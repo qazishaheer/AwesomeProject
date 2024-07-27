@@ -1,0 +1,9 @@
+export const THEME = {
+  PRIMARY: '#212832',
+  RED: '#E84D0C',
+  BLACK: '#000000',
+  WHITE: '#FFFFFF',
+  GRAY: '#808080',
+  PLACE_HOLDER: '#CCCCCC',
+  INPUT: '#393D46',
+};
