@@ -6,6 +6,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {THEME} from '../../constants/theme';
+import {SCREEN} from '../../constants/screen';
 
 const data = [
   {
@@ -83,10 +84,13 @@ const data = [
 ];
 
 const Leads = () => {
-  const navigation = useNavigation();
+  const navigation: any = useNavigation();
 
   const renderItem = ({item}: any) => (
-    <View style={styles.mainlead}>
+    <TouchableOpacity
+      activeOpacity={0.9}
+      onPress={() => navigation.navigate(SCREEN.HOME)}
+      style={styles.mainlead}>
       <View style={styles.leadsdata}>
         <View style={styles.Leadsrow}>
           <Text style={styles.leadtsxt}>{item.name}</Text>
@@ -116,18 +120,20 @@ const Leads = () => {
           </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
   return (
     <View>
       <View style={styles.header}>
         <View style={styles.innerContainer}>
-          <View style={styles.iconContainer}>
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={styles.iconContainer}>
             <AntDesign name="arrowleft" size={23} color={THEME.WHITE} />
-          </View>
+          </TouchableOpacity>
           <View style={styles.textContainer}>
-            <Text style={styles.title}>DashBoard</Text>
+            <Text style={styles.title}>Leads</Text>
           </View>
           <View style={styles.iconContainer}>
             <Fontisto name="bell" size={20} color={THEME.WHITE} />

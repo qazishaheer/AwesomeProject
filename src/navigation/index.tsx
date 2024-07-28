@@ -18,9 +18,9 @@ const RouteHandler = () => {
           headerShown: false,
         }}>
         <Stack.Screen name={SCREEN.SPLASH} component={Splash} />
-        <Stack.Screen name={SCREEN.HOME} component={Home} />
         <Stack.Screen name={SCREEN.LOGIN} component={Login} />
         <Stack.Screen name={SCREEN.FORGOT} component={Forgot} />
+        <Stack.Screen name={SCREEN.HOME} component={Home} />
         <Stack.Screen name={SCREEN.LEADS} component={Leads} />
       </Stack.Navigator>
     </NavigationContainer>
