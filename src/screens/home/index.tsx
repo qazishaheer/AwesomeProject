@@ -13,6 +13,8 @@ import Feather from 'react-native-vector-icons/Feather';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import PieChart from 'react-native-pie-chart';
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const data = [
   {id: '1', meetings: 150, title: 'Total Meetings', icon: 'groups'},
@@ -29,8 +31,20 @@ const bars = [
   {color: THEME.GREEN, height: 80, percent: '80%', width: 80},
 ];
 
+export const datazz = [
+  {status: 'Progress', value: 10},
+  {status: 'Completed', value: 20},
+  {status: 'Pending', value: 30},
+  {status: 'In Review', value: 40},
+  {status: 'Approved', value: 50},
+  {status: 'Rejected', value: 60},
+];
+
 const Home = () => {
   const [selectedId, setSelectedId] = useState(null);
+  const widthAndHeight = 150;
+  const series = [10, 20, 30, 50];
+  const sliceColor = [THEME.RED, THEME.BLUE, THEME.GREEN, THEME.YELLOW];
 
   const handlePress = (id: any) => {
     setSelectedId(id === selectedId ? null : id);
@@ -93,53 +107,78 @@ const Home = () => {
         <View style={styles.graphContainer}>
           <Text style={styles.leadStatus}>Lead Status</Text>
           <View style={styles.barChart}>
-            {bars.map((bar, index) => (
+            <View style={styles.xAxis}>
+              <Text style={styles.percent}>90%</Text>
+              <Text style={styles.percent}>80%</Text>
+              <Text style={styles.percent}>70%</Text>
+              <Text style={styles.percent}>60%</Text>
+              <Text style={styles.percent}>50%</Text>
+              <Text style={styles.percent}>40%</Text>
+              <Text style={styles.percent}>30%</Text>
+              <Text style={styles.percent}>20%</Text>
+              <Text style={styles.percent}>10%</Text>
+              <Text style={styles.percent}>00%</Text>
+            </View>
+            <View style={styles.yAxis}>
               <View
-                key={index}
                 style={[
                   styles.bar,
-                  {backgroundColor: bar.color, height: bar.height},
+                  {backgroundColor: THEME.BLACK, height: hp(13)},
                 ]}
               />
-            ))}
+              <View
+                style={[
+                  styles.bar,
+                  {backgroundColor: THEME.YELLOW, height: hp(8)},
+                ]}
+              />
+              <View
+                style={[
+                  styles.bar,
+                  {backgroundColor: THEME.GRAY, height: hp(10)},
+                ]}
+              />
+              <View
+                style={[
+                  styles.bar,
+                  {backgroundColor: THEME.BLUE, height: hp(18)},
+                ]}
+              />
+            </View>
           </View>
-          <View style={styles.barChart}>
-            {bars.map((bar, index) => (
-              <Text key={index} style={styles.percent}>
-                {bar.percent}
-              </Text>
-            ))}
+          <View style={styles.progressBar}>
+            <Text style={styles.barTitles}>Pending</Text>
+            <Text style={styles.barTitles}>Follow Up</Text>
+            <Text style={styles.barTitles}>Success</Text>
+            <Text style={styles.barTitles}>Analysis</Text>
           </View>
         </View>
         <View style={styles.graphContainer}>
-          <Text style={styles.leadStatus}>Lead Status</Text>
-          <View
-            style={{
-              width: '100%',
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <View style={{width: '25%'}}>
-              <View style={styles.verticalBarChart}>
-                {bars.map((bar, index) => (
-                  <Text key={index} style={styles.percent2}>
-                    {bar.percent}
-                  </Text>
-                ))}
+          <Text style={styles.leadStatus}>Lead by Status</Text>
+          <View style={styles.graph}>
+            <PieChart
+              widthAndHeight={widthAndHeight}
+              series={series}
+              sliceColor={sliceColor}
+              coverRadius={0.45}
+              coverFill={THEME.WHITE}
+            />
+            <View>
+              <View style={styles.pairow}>
+                <View style={styles.circlegreen} />
+                <Text style={styles.paitxt}>WhatsApp</Text>
               </View>
-            </View>
-            <View style={{width: '75%'}}>
-              <View style={styles.verticalBarChart}>
-                {bars.map((bar, index) => (
-                  <View
-                    key={index}
-                    style={[
-                      styles.verticalBar,
-                      {backgroundColor: bar.color, width: bar.width},
-                    ]}
-                  />
-                ))}
+              <View style={styles.pairow}>
+                <View style={styles.circleblue} />
+                <Text style={styles.paitxt}>Facebook</Text>
+              </View>
+              <View style={styles.pairow}>
+                <View style={styles.circleyellow} />
+                <Text style={styles.paitxt}>Websites</Text>
+              </View>
+              <View style={styles.pairow}>
+                <View style={styles.circlered} />
+                <Text style={styles.paitxt}>Others</Text>
               </View>
             </View>
           </View>

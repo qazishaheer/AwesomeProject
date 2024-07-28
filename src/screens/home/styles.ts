@@ -44,7 +44,7 @@ export const styles = StyleSheet.create({
   },
   containerBox: {
     width: '90%',
-    paddingVertical: hp(3),
+    paddingVertical: hp(1),
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: THEME.WHITE,
@@ -87,6 +87,15 @@ export const styles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
     backgroundColor: THEME.WHITE,
+    paddingBottom: hp(2),
+  },
+  graph: {
+    width: '90%',
+    alignSelf: 'center',
+    backgroundColor: THEME.WHITE,
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   leadStatus: {
     fontSize: RFPercentage(2.2),
@@ -96,41 +105,74 @@ export const styles = StyleSheet.create({
   },
   barChart: {
     width: '90%',
-    paddingVertical: hp(3),
     flexDirection: 'row',
     alignItems: 'flex-end',
     alignSelf: 'center',
   },
-  verticalBarChart: {
+  xAxis: {
+    width: '25%',
+  },
+  yAxis: {
+    width: '75%',
+    flexDirection: 'row',
+  },
+  progressBar: {
     width: '90%',
-    paddingVertical: hp(3),
-    alignItems: 'flex-start',
+    flexDirection: 'row',
     alignSelf: 'center',
+    justifyContent: 'flex-end',
   },
   bar: {
-    width: '7%',
     borderRadius: 22,
-    marginHorizontal: hp(2.6),
-  },
-  verticalBar: {
-    height: hp(2),
-    borderRadius: 22,
-    marginHorizontal: hp(2.6),
-    marginVertical: hp(1.1),
+    marginHorizontal: hp(2),
+    width: '10%',
+    alignSelf: 'flex-end',
   },
   percent: {
-    fontSize: RFPercentage(3),
+    fontSize: RFPercentage(1.8),
     color: THEME.BLACK,
-    fontFamily: 'Poppins-SemiBold',
+    fontFamily: 'Poppins-Regular',
     marginHorizontal: hp(1.3),
-    marginRight: hp(2),
-    marginTop: hp(-2),
   },
-  percent2: {
-    fontSize: RFPercentage(3),
+  barTitles: {
+    fontSize: RFPercentage(1.5),
     color: THEME.BLACK,
-    fontFamily: 'Poppins-SemiBold',
+    fontFamily: 'Poppins-Regular',
     marginHorizontal: hp(1.3),
-    marginVertical: hp(0.1),
+  },
+  paimeasers: {
+    marginTop: 50,
+  },
+  paitxt: {
+    fontFamily: 'Poppins-SemiBold',
+    marginLeft: 10,
+  },
+  pairow: {
+    flexDirection: 'row',
+    marginTop: 9,
+  },
+  circlered: {
+    borderWidth: 11,
+    borderRadius: 6,
+    borderColor: THEME.RED,
+    marginLeft: 50,
+  },
+  circleblue: {
+    borderWidth: 11,
+    borderRadius: 6,
+    borderColor: THEME.BLUE,
+    marginLeft: 50,
+  },
+  circlegreen: {
+    borderWidth: 11,
+    borderRadius: 6,
+    borderColor: THEME.GREEN,
+    marginLeft: 50,
+  },
+  circleyellow: {
+    borderWidth: 11,
+    borderRadius: 6,
+    borderColor: THEME.YELLOW,
+    marginLeft: 50,
   },
 });
