@@ -1,6 +1,11 @@
-import {FlatList, Image, Text, View} from 'react-native';
+import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import styles from '../Leads/style';
+import {useNavigation} from '@react-navigation/native';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import Fontisto from 'react-native-vector-icons/Fontisto';
+import Entypo from 'react-native-vector-icons/Entypo';
+import {THEME} from '../../constants/theme';
 
 const data = [
   {
@@ -30,26 +35,6 @@ const data = [
     status: 'Reopened',
     date: '5 April, 2024',
   },
-  {
-    id: '1',
-    name: 'John Smith',
-    amount: '7500.00',
-    position: 'Ceo SmithTech Solution',
-    company: 'Google',
-    status: 'Reopened',
-    date: '5 April, 2024',
-  },
-
-  {
-    id: '1',
-    name: 'John Smith',
-    amount: '7500.00',
-    position: 'Ceo SmithTech Solution',
-    company: 'Google',
-    status: 'Reopened',
-    date: '5 April, 2024',
-  },
-
   {
     id: '1',
     name: 'John Smith',
@@ -98,6 +83,8 @@ const data = [
 ];
 
 const Leads = () => {
+  const navigation = useNavigation();
+
   const renderItem = ({item}: any) => (
     <View style={styles.mainlead}>
       <View style={styles.leadsdata}>
@@ -134,6 +121,22 @@ const Leads = () => {
 
   return (
     <View>
+      <View style={styles.header}>
+        <View style={styles.innerContainer}>
+          <View style={styles.iconContainer}>
+            <AntDesign name="arrowleft" size={23} color={THEME.WHITE} />
+          </View>
+          <View style={styles.textContainer}>
+            <Text style={styles.title}>DashBoard</Text>
+          </View>
+          <View style={styles.iconContainer}>
+            <Fontisto name="bell" size={20} color={THEME.WHITE} />
+          </View>
+          <View style={styles.iconContainer}>
+            <Entypo name="dots-three-vertical" size={20} color={THEME.WHITE} />
+          </View>
+        </View>
+      </View>
       <View style={{flexDirection: 'row'}}>
         <View style={styles.boders} />
         <Text style={styles.txt}>Lead Summery</Text>
@@ -187,14 +190,15 @@ const Leads = () => {
         data={data}
         renderItem={renderItem}
         keyExtractor={item => item.id}
+        contentContainerStyle={{paddingBottom: 100}}
       />
-      <View>
+      {/* <View style={styles.footer}>
         <Image
           source={require('../../assets/icons/plus.png')}
-          style={styles.filter}
+          style={styles.plus}
           resizeMode="contain"
         />
-      </View>
+      </View> */}
     </View>
   );
 };

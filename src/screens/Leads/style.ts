@@ -1,5 +1,10 @@
 import {StyleSheet} from 'react-native';
 import {THEME} from '../../constants/theme';
+import {
+  heightPercentageToDP as hp,
+  heightPercentageToDP as wp,
+} from 'react-native-responsive-screen';
+import {RFPercentage} from 'react-native-responsive-fontsize';
 
 const styles = StyleSheet.create({
   txt: {
@@ -87,6 +92,12 @@ const styles = StyleSheet.create({
     marginRight: 3,
     marginTop: 2,
   },
+  back: {
+    width: 20,
+    height: 20,
+    tintColor: 'white',
+    marginRight: 10,
+  },
   leadtsxt3: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -142,6 +153,51 @@ const styles = StyleSheet.create({
     width: '100%',
     alignSelf: 'center',
     borderColor: '#D3D3D3',
+  },
+  header: {
+    width: '100%',
+    backgroundColor: THEME.PRIMARY,
+    height: hp(8),
+  },
+  innerContainer: {
+    width: '100%',
+    alignSelf: 'center',
+    height: hp(8),
+    backgroundColor: THEME.PRIMARY,
+    flexDirection: 'row',
+    paddingHorizontal: hp(1),
+  },
+  iconContainer: {
+    width: '10%',
+    height: hp(8),
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  textContainer: {
+    width: '70%',
+    height: hp(8),
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: RFPercentage(2.2),
+    color: THEME.WHITE,
+    fontFamily: 'Poppins-SemiBold',
+  },
+  footer: {
+    position: 'absolute',
+    marginBottom: 0,
+    bottom: 0,
+    width: '100%',
+    height: 60,
+    borderWidth: 1,
+    alignItems: 'flex-end',
+  },
+  plus: {
+    width: 35,
+    height: 35,
+    marginRight: 3,
+    marginTop: 2,
   },
 });
 export default styles;

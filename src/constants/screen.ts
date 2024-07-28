@@ -3,4 +3,5 @@ export const SCREEN = {
   LOGIN: 'Login',
   FORGOT: 'Forgot',
   LEADS: 'Leads',
+  SPLASH: 'Splash',
 };
