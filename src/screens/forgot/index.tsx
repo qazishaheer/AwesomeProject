@@ -62,7 +62,7 @@ const Forgot = () => {
         </View>
 
         <Button
-          onPress={() => navigation.navigate(SCREEN.HOME)}
+          onPress={() => navigation.navigate(SCREEN.LEADS)}
           title="Reset"
         />
 
