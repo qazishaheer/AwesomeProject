@@ -6,6 +6,7 @@ export const THEME = {
   GRAY: '#808080',
   PLACE_HOLDER: '#CCCCCC',
   INPUT: '#393D46',
+  YELLOW: '#FFFF00',
 
   MAIN_TITLE: '#2E3E5C',
   MAIN_SUBTITLE: '#8189B0',
